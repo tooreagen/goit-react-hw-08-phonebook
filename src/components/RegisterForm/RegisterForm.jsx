@@ -11,7 +11,6 @@ const RegisterForm = () => {
   const inputEmailID = nanoid();
   const inputPassID = nanoid();
   const inputPassRetypeID = nanoid();
-  const formID = nanoid();
 
   const dispatch = useDispatch();
   const error = useSelector(selectError);
@@ -40,7 +39,7 @@ const RegisterForm = () => {
   }, [error]);
 
   return (
-    <FormRegister id={formID} onSubmit={handleSubmit}>
+    <FormRegister onSubmit={handleSubmit}>
       <label htmlFor={inputNameID}>User name:</label>
       <input type="text" name="name" id={inputNameID} />
 
