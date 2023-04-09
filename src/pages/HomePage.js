@@ -1,7 +1,7 @@
 const Home = () => {
     return (
         <div>
-            <p>Аторизуйтесь будь ласка</p>
+            <p>This contacts application</p>
         </div>
     )
 }

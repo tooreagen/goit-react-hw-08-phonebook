@@ -1,16 +1,18 @@
+import AuthNav from 'components/AuthNav/AuthNav';
+import MainNav from 'components/MainNav/MainNav';
+import UserMenu from 'components/UserMenu/UserMenu';
 import { Outlet } from 'react-router-dom';
-import { Container, NavigationLink } from './LayoutStyled';
-
+import { Container, Navigation } from './LayoutStyled';
 
 const Layout = () => {
   return (
     <Container>
       <header>
-        <nav>
-          <NavigationLink to="/register">Register</NavigationLink>
-          <NavigationLink to="/login">Login</NavigationLink>
-          <NavigationLink to="/contacts">Contacts</NavigationLink>
-        </nav>
+        <Navigation>
+          <MainNav/>
+          <AuthNav />
+          <UserMenu />
+        </Navigation>
       </header>
       <Outlet />
     </Container>

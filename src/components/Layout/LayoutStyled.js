@@ -16,6 +16,7 @@ export const Header = styled.header`
 export const Navigation = styled.nav`
   display: flex;
   gap: 12px;
+  justify-content: space-between;
 `;
 
 export const NavigationLink = styled(NavLink)`
