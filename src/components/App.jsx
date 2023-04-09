@@ -3,8 +3,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Route, Routes } from 'react-router';
 import Home from 'pages/HomePage';
-import AuthRegister from 'pages/RegisterPage';
-import AuthLogin from 'pages/AuthPage';
+import RegisterPage from 'pages/RegisterPage';
+import LoginPage from 'pages/LoginPage';
 import Layout from './Layout/Layout';
 import Contacts from 'pages/ContactsPage';
 
@@ -14,8 +14,8 @@ export function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/register" element={<AuthRegister />} />
-          <Route path="/login" element={<AuthLogin />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="*" element={<Home />} />
         </Route>
@@ -25,6 +25,9 @@ export function App() {
     </>
   );
 }
+
+//email: ukraine@ukraine.ua
+//pass:  ukrainetop
 
 //label що з ними робити?
 //информування коли невірний логін або пароль
