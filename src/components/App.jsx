@@ -2,22 +2,37 @@ import { GlobalStyle } from './GlobalStyle';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Route, Routes } from 'react-router';
-import Home from 'pages/HomePage';
+import HomePage from 'pages/HomePage';
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
 import Layout from './Layout/Layout';
-import Contacts from 'pages/ContactsPage';
+import ContactsPage from 'pages/ContactsPage';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
+import NotLoggedIn from './NotLoggedIn/NotLoggedIn';
 
 export function App() {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="*" element={<Home />} />
+          <Route
+            path="/contacts"
+            element={
+              isLoggedIn ? (
+                <ContactsPage />
+              ) : (
+                <>
+                  <NotLoggedIn /> <LoginPage />
+                </>
+              )
+            }
+          />
+          <Route path="*" element={<HomePage />} />
         </Route>
       </Routes>
       <ToastContainer />
@@ -35,5 +50,6 @@ export function App() {
 //функція обробки відповіді, якщо 200 то ок, якщо 500 сервак упав і т.д.
 //Реєстраця, ллогін це клмпоненти (можна використовувати декілька разів)
 //Покалсти компоненти реестрації і логіну на на сторінкки
-//попробовать сделать чтобы при наличии ошибки в ргеистрации отображать ошибку. 
+//попробовать сделать чтобы при наличии ошибки в ргеистрации отображать ошибку.
 //У меня не получилось. Когда заполнил данные, первый раз отображает, а потом там уже есть эррор и не отображает ошибку
+//проверить достіпні ли переході по прямім ссілкам если нет авторизации

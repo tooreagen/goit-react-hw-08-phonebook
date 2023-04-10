@@ -3,7 +3,7 @@ import { FormRegister } from './RegisterFormStyled';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { registerUser } from 'redux/auth/auth-operations';
-import { selectError } from 'redux/auth/autch-selectors';
+import { selectError } from 'redux/auth/auth-selectors';
 import { useEffect } from 'react';
 
 const RegisterForm = () => {

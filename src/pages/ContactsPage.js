@@ -8,10 +8,11 @@ import { fetchContacts } from 'redux/contacts/contacts-operations';
 import { selectFetchError, selectIsLoadingState } from 'redux/contacts/contacts-selectors';
 import { toast } from 'react-toastify';
 
-const Contacts = () => {
+const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoadingState);
   const dispatch = useDispatch();
   const error = useSelector(selectFetchError);
+  
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -31,4 +32,4 @@ const Contacts = () => {
     </main>
   );
 };
-export default Contacts;
+export default ContactsPage;
