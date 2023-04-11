@@ -52,7 +52,7 @@ const RegisterForm = () => {
       <label htmlFor={inputPassRetypeID}>Retype password:</label>
       <input type="password" name="passRetype" id={inputPassRetypeID} />
 
-      <button type="submit">Зарегистрироваться</button>
+      <button type="submit">Register</button>
     </FormRegister>
   );
 };
