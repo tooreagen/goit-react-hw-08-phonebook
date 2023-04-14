@@ -31,9 +31,9 @@ const LoginForm = () => {
     }
   }, [error]);
 
-  if (isLoggedIn === true) {
-    return <Navigate to="/contacts" replace />;
-  }
+  // if (isLoggedIn === true) {
+  //   return <Navigate to="/contacts" replace />;
+  // }
 
   return (
     <FormLogin onSubmit={handleSubmit}>

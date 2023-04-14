@@ -31,13 +31,11 @@ export function App() {
           <Route
             path="/contacts"
             element={
-              isLoggedIn ? (
+              <>
                 <ContactsPage />
-              ) : (
-                <>
-                  <NotLoggedIn /> <LoginPage />
-                </>
-              )
+                <NotLoggedIn />
+                <LoginPage />
+              </>
             }
           />
           <Route path="*" element={<HomePage />} />

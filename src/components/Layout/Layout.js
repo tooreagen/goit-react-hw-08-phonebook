@@ -13,7 +13,8 @@ const Layout = () => {
       <header>
         <Navigation>
           <MainNav />
-          {isLoggedIn ? <UserMenu /> : <AuthNav />}
+          <UserMenu />
+          <AuthNav />
         </Navigation>
       </header>
       <Outlet />
