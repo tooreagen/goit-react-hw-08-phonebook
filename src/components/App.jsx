@@ -7,12 +7,20 @@ import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
 import Layout from './Layout/Layout';
 import ContactsPage from 'pages/ContactsPage';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 import NotLoggedIn from './NotLoggedIn/NotLoggedIn';
+import { useEffect } from 'react';
+import { currentUser } from 'redux/auth/auth-operations';
 
 export function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(currentUser());
+  }, [dispatch]);
+
   return (
     <>
       <Routes>
@@ -53,3 +61,5 @@ export function App() {
 //попробовать сделать чтобы при наличии ошибки в ргеистрации отображать ошибку.
 //У меня не получилось. Когда заполнил данные, первый раз отображает, а потом там уже есть эррор и не отображает ошибку
 //проверить достіпні ли переході по прямім ссілкам если нет авторизации
+//очищается ли токен после выхода юзера
+//contacts item після деаутентифікації

@@ -6,17 +6,17 @@ import { addContact } from 'redux/contacts/contacts-operations';
 
 export function ContactsForm() {
   const nameInputId = nanoid();
-  const phoneInputId = nanoid();
+  const numberInputId = nanoid();
   const contacts = useSelector(selectContactsArray);
   const dispatch = useDispatch();
 
   const handleContactAdd = evt => {
-    const { name, phone } = evt.target;
+    const { name, number } = evt.target;
     evt.preventDefault();
     if (contacts.some(item => item.name === name.value)) {
       alert(`${name.value} is already in contacts.`);
     } else {
-      dispatch(addContact({ name: name.value, phone: phone.value }));
+      dispatch(addContact({ name: name.value, number: number.value }));
     }
     evt.target.reset();
   };
@@ -32,11 +32,11 @@ export function ContactsForm() {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
-      <Label htmlFor={phoneInputId}>Number</Label>
+      <Label htmlFor={numberInputId}>Number</Label>
       <Input
-        id={phoneInputId}
+        id={numberInputId}
         type="tel"
-        name="phone"
+        name="number"
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
