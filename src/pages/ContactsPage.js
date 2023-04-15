@@ -28,8 +28,7 @@ const ContactsPage = () => {
       <ContactsForm />
       <h2>Contacts</h2>
       <Filter />
-      <Loading />
-      <ContactsList />
+      {isLoading ? <Loading /> : <ContactsList />}
     </main>
   );
 };

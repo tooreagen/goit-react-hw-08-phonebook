@@ -1,20 +1,20 @@
 import { GlobalStyle } from './GlobalStyle';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Route, Routes } from 'react-router';
 import HomePage from 'pages/HomePage';
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
 import Layout from './Layout/Layout';
 import ContactsPage from 'pages/ContactsPage';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
-import NotLoggedIn from './NotLoggedIn/NotLoggedIn';
-import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect, lazy, Suspense } from 'react';
 import { currentUser } from 'redux/auth/auth-operations';
+import PrivateRoute from 'PrivateRoute';
+import { Routes, Route } from 'react-router-dom';
+import PublicRoute from 'PublicRoute';
+
 
 export function App() {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,19 +23,42 @@ export function App() {
 
   return (
     <>
+      ukrainetop
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            index
+            element={
+              <PublicRoute>
+                <HomePage />
+              </PublicRoute>
+            }
+          />
+
+          <Route
+            path="/register"
+            element={
+              <PublicRoute restricted>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+
+          <Route
+            path="/login"
+            element={
+              <PublicRoute restricted>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+
           <Route
             path="/contacts"
             element={
-              <>
+              <PrivateRoute>
                 <ContactsPage />
-                <NotLoggedIn />
-                <LoginPage />
-              </>
+              </PrivateRoute>
             }
           />
           <Route path="*" element={<HomePage />} />

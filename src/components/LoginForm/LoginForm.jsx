@@ -2,17 +2,15 @@ import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from 'redux/auth/auth-operations';
 import { FormLogin } from './LoginFormStyled';
-import { selectError, selectIsLoggedIn } from 'redux/auth/auth-selectors';
+import { selectError } from 'redux/auth/auth-selectors';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { Navigate } from 'react-router';
 
 const LoginForm = () => {
   const inputEmailID = nanoid();
   const inputPassID = nanoid();
   const dispatch = useDispatch();
   const error = useSelector(selectError);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const handleSubmit = evt => {
     const { email, password } = evt.target;
@@ -30,10 +28,6 @@ const LoginForm = () => {
       toast.error(error);
     }
   }, [error]);
-
-  // if (isLoggedIn === true) {
-  //   return <Navigate to="/contacts" replace />;
-  // }
 
   return (
     <FormLogin onSubmit={handleSubmit}>
