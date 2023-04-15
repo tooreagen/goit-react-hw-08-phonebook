@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { registerUser } from 'redux/auth/auth-operations';
 import { selectError } from 'redux/auth/auth-selectors';
-import { useEffect } from 'react';
 
 const RegisterForm = () => {
   const inputNameID = nanoid();
@@ -32,11 +31,9 @@ const RegisterForm = () => {
     evt.target.reset();
   };
 
-  // useEffect(() => {
-  //   if (error) {
-  //     toast.error(error);
-  //   }
-  // }, [error]);
+  if (error) {
+    toast.error('Register error');
+  }
 
   return (
     <FormRegister onSubmit={handleSubmit}>

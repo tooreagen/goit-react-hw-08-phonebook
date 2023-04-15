@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from 'redux/auth/auth-operations';
 import { FormLogin } from './LoginFormStyled';
 import { selectError } from 'redux/auth/auth-selectors';
-import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
 const LoginForm = () => {
@@ -23,11 +22,6 @@ const LoginForm = () => {
     );
   };
 
-  // useEffect(() => {
-  //   if (error) {
-  //     toast.error('Incorrect login or password');
-  //   }
-  // }, [error]);
   if (error) {
     toast.error('Incorrect login or password');
   }
