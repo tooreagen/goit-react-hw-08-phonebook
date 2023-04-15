@@ -32,11 +32,11 @@ const RegisterForm = () => {
     evt.target.reset();
   };
 
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     toast.error(error);
+  //   }
+  // }, [error]);
 
   return (
     <FormRegister onSubmit={handleSubmit}>

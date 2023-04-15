@@ -23,11 +23,14 @@ const LoginForm = () => {
     );
   };
 
-  useEffect(() => {
-    if (error) {
-      toast.error(error);
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (error) {
+  //     toast.error('Incorrect login or password');
+  //   }
+  // }, [error]);
+  if (error) {
+    toast.error('Incorrect login or password');
+  }
 
   return (
     <FormLogin onSubmit={handleSubmit}>

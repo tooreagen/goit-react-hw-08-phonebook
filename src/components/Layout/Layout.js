@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { selectIsLoggedIn } from 'redux/auth/auth-selectors';
 import { Container, Navigation } from './LayoutStyled';
+import { Suspense } from 'react';
+import { Loading } from 'components/Loading/Loading';
 
 const Layout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -16,7 +18,10 @@ const Layout = () => {
           {isLoggedIn ? <UserMenu /> : <AuthNav />}
         </Navigation>
       </header>
-      <Outlet />
+
+      <Suspense fallback={<Loading/>}>
+        <Outlet />
+      </Suspense>
     </Container>
   );
 };

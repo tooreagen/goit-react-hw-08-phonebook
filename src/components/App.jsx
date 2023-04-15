@@ -1,18 +1,18 @@
+import { Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import HomePage from 'pages/HomePage';
-import RegisterPage from 'pages/RegisterPage';
-import LoginPage from 'pages/LoginPage';
 import Layout from './Layout/Layout';
-import ContactsPage from 'pages/ContactsPage';
 import { useDispatch } from 'react-redux';
-import { useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy } from 'react';
 import { currentUser } from 'redux/auth/auth-operations';
 import PrivateRoute from 'PrivateRoute';
-import { Routes, Route } from 'react-router-dom';
 import PublicRoute from 'PublicRoute';
 
+const HomePage = lazy(()=>import("pages/HomePage"))
+const RegisterPage = lazy(() => import('pages/RegisterPage'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage'));
 
 export function App() {
   const dispatch = useDispatch();
@@ -73,7 +73,6 @@ export function App() {
 //email: ukraine@ukraine.ua
 //pass:  ukrainetop
 
-//label що з ними робити?
 //информування коли невірний логін або пароль
 // інформування про помилку при среєстрації юзверя
 //функція обробки відповіді, якщо 200 то ок, якщо 500 сервак упав і т.д.
