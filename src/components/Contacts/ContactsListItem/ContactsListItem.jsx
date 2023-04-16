@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contacts-operations';
-import { ListItem, IconButton, ListItemText } from '@mui/material';
+import { ListItem, IconButton, ListItemText, Divider } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export function ContactsListItem(props) {
@@ -13,19 +13,22 @@ export function ContactsListItem(props) {
   };
 
   return (
-    <ListItem
-      secondaryAction={
-        <IconButton
-          edge="end"
-          aria-label="delete"
-          onClick={handleContactDelete}
-        >
-          <DeleteIcon />
-        </IconButton>
-      }
-    >
-      <ListItemText primary={`${name}`} secondary={`${number}`} />
-    </ListItem>
+    <>
+      <ListItem
+        secondaryAction={
+          <IconButton
+            edge="end"
+            aria-label="delete"
+            onClick={handleContactDelete}
+          >
+            <DeleteIcon />
+          </IconButton>
+        }
+      >
+        <ListItemText primary={`${name}`} secondary={`${number}`} />
+      </ListItem>
+      <Divider />
+    </>
   );
 }
 

@@ -2,21 +2,18 @@ import styled from "styled-components";
 import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
-  padding: 20px;
-  width: 40%;
+  padding: 15px;
+  width: 480px;
   margin-left: auto;
   margin-right: auto;
 `;
 
 export const Header = styled.header`
-  padding: 8px 0;
-  border-bottom: 1px solid black;
-`;
-
-export const Navigation = styled.nav`
+  padding-bottom: 15px;
   display: flex;
-  gap: 12px;
+  align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid #b1b1b1;
 `;
 
 export const NavigationLink = styled(NavLink)`

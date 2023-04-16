@@ -40,6 +40,7 @@ const RegisterForm = () => {
         color="primary"
         size="small"
         focused
+        required
       />
       <TextField
         name="email"
@@ -48,6 +49,7 @@ const RegisterForm = () => {
         color="primary"
         size="small"
         focused
+        required
       />
       <TextField
         name="password"
@@ -56,6 +58,7 @@ const RegisterForm = () => {
         color="primary"
         size="small"
         focused
+        required
       />
       <TextField
         name="passRetype"
@@ -64,6 +67,7 @@ const RegisterForm = () => {
         color="primary"
         size="small"
         focused
+        required
       />
 
       <Button type="submit" variant="contained">

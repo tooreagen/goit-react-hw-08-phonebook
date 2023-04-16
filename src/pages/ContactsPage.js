@@ -5,14 +5,18 @@ import { Loading } from 'components/Loading/Loading';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/contacts-operations';
-import { selectFetchError, selectIsLoadingState } from 'redux/contacts/contacts-selectors';
+import {
+  selectFetchError,
+  selectIsLoadingState,
+} from 'redux/contacts/contacts-selectors';
 import { toast } from 'react-toastify';
+import { PhonebookHeader } from 'components/Contacts/ContactsForm/ContactsForm.styled';
+import { FilterWrap } from 'components/Contacts/Filter/Filter.styled';
 
 const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoadingState);
   const dispatch = useDispatch();
   const error = useSelector(selectFetchError);
-  
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -21,13 +25,16 @@ const ContactsPage = () => {
   useEffect(() => {
     toast.error(error);
   }, [error]);
-    
+
   return (
     <main>
-      <h1>Phonebook</h1>
+      <PhonebookHeader>Phonebook</PhonebookHeader>
       <ContactsForm />
-      <h2>Contacts</h2>
-      <Filter />
+
+      <FilterWrap>
+        <PhonebookHeader>Contacts</PhonebookHeader>
+        <Filter />
+      </FilterWrap>
       {isLoading ? <Loading /> : <ContactsList />}
     </main>
   );

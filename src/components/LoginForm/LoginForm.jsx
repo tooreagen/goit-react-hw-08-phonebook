@@ -33,6 +33,7 @@ const LoginForm = () => {
         color="primary"
         size="small"
         focused
+        required
       />
       <TextField
         name="password"
@@ -41,6 +42,7 @@ const LoginForm = () => {
         color="primary"
         size="small"
         focused
+        required
       />
       <Button type="submit" variant="contained">
         Login

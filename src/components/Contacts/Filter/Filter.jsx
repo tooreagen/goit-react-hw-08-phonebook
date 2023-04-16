@@ -1,4 +1,3 @@
-import { FilterWrap } from './Filter.styled';
 import { useDispatch } from 'react-redux';
 import { filterContacts } from 'redux/contacts/filter-slice';
 import { TextField } from '@mui/material';
@@ -11,15 +10,14 @@ export function Filter() {
   };
 
   return (
-    <FilterWrap>
       <TextField
         onChange={handleContactFind}
         type="text"
         label="Find contacts by name"
         color="primary"
-        size="small"
+      size="small"
+      fullWidth
         focused
       />
-    </FilterWrap>
   );
 }
