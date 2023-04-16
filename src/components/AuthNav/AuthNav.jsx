@@ -1,4 +1,4 @@
-import { NavigationLink } from './AuthNavStyled';
+import { NavigationLink } from 'components/MainNav/MainNavStyled';
 
 const AuthNav = () => {
   return (

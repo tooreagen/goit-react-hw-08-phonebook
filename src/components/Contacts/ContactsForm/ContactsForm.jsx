@@ -1,12 +1,10 @@
-import { nanoid } from 'nanoid';
-import { Form, Label, Input, Button } from './ContactsForm.styled';
+import { Form } from './ContactsForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContactsArray } from 'redux/contacts/contacts-selectors';
 import { addContact } from 'redux/contacts/contacts-operations';
+import { TextField, Button } from '@mui/material';
 
 export function ContactsForm() {
-  const nameInputId = nanoid();
-  const numberInputId = nanoid();
   const contacts = useSelector(selectContactsArray);
   const dispatch = useDispatch();
 
@@ -23,25 +21,31 @@ export function ContactsForm() {
 
   return (
     <Form onSubmit={handleContactAdd}>
-      <Label htmlFor={nameInputId}>Name</Label>
-      <Input
-        id={nameInputId}
-        type="text"
+      <TextField
         name="name"
+        type="text"
+        label="Name"
+        color="primary"
+        size="small"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
+        focused
       />
-      <Label htmlFor={numberInputId}>Number</Label>
-      <Input
-        id={numberInputId}
-        type="tel"
+      <TextField
         name="number"
+        type="tel"
+        label="Number"
+        color="primary"
+        size="small"
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
+        focused
       />
-      <Button type="submit">Add contact</Button>
+      <Button type="submit" variant="contained">
+        Add contact
+      </Button>
     </Form>
   );
 }

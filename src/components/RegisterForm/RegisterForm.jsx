@@ -1,15 +1,11 @@
-import { nanoid } from 'nanoid';
 import { FormRegister } from './RegisterFormStyled';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { registerUser } from 'redux/auth/auth-operations';
 import { selectError } from 'redux/auth/auth-selectors';
+import { Button, TextField } from '@mui/material';
 
 const RegisterForm = () => {
-  const inputNameID = nanoid();
-  const inputEmailID = nanoid();
-  const inputPassID = nanoid();
-  const inputPassRetypeID = nanoid();
 
   const dispatch = useDispatch();
   const error = useSelector(selectError);
@@ -37,19 +33,42 @@ const RegisterForm = () => {
 
   return (
     <FormRegister onSubmit={handleSubmit}>
-      <label htmlFor={inputNameID}>User name:</label>
-      <input type="text" name="name" id={inputNameID} />
+      <TextField
+        name="name"
+        type="text"
+        label="User name"
+        color="primary"
+        size="small"
+        focused
+      />
+      <TextField
+        name="email"
+        type="email"
+        label="E-mail"
+        color="primary"
+        size="small"
+        focused
+      />
+      <TextField
+        name="password"
+        type="password"
+        label="Password"
+        color="primary"
+        size="small"
+        focused
+      />
+      <TextField
+        name="passRetype"
+        type="password"
+        label="Retype password"
+        color="primary"
+        size="small"
+        focused
+      />
 
-      <label htmlFor={inputEmailID}>E-mail:</label>
-      <input type="email" name="email" id={inputEmailID} />
-
-      <label htmlFor={inputPassID}>Password:</label>
-      <input type="password" name="password" id={inputPassID} />
-
-      <label htmlFor={inputPassRetypeID}>Retype password:</label>
-      <input type="password" name="passRetype" id={inputPassRetypeID} />
-
-      <button type="submit">Register</button>
+      <Button type="submit" variant="contained">
+        Register
+      </Button>
     </FormRegister>
   );
 };
