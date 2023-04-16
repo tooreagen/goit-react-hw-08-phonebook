@@ -68,6 +68,3 @@ export function App() {
     </>
   );
 }
-
-//email: ukraine@ukraine.ua
-//pass:  ukrainetop

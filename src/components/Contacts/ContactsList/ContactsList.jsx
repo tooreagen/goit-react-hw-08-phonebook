@@ -6,8 +6,6 @@ import {
   selectFilterString,
 } from 'redux/contacts/contacts-selectors';
 
-
-
 export function ContactsList() {
   const contacts = useSelector(selectContactsArray);
   const filterString = useSelector(selectFilterString);
@@ -22,11 +20,3 @@ return <ContactsListItem key={item.id} item={item} />;
     </List>
   );
 }
-
-// <List>
-//   {contacts
-//     .filter(item => item.name.toLowerCase().includes(filterString))
-//     .map(item => {
-//       return <ContactsListItem key={item.id} item={item} />;
-//     })}
-// </List>
